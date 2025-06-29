@@ -1,0 +1,18 @@
+services:
+  mysql:
+    image: mysql:9.3.0
+    container_name: mysql-order-container
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootsecure
+      MYSQL_DATABASE: order_service
+      MYSQL_USER: oms_user
+      MYSQL_PASSWORD: omspass
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql-data:
