@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "api/inventory")
+@RequestMapping(value = "/api/inventory")
 @AllArgsConstructor
 public class InventoryController {
     private final InventoryService inventoryService;
